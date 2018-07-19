@@ -941,7 +941,7 @@ git_clean_remote() {
       echo \"cleaning files in: $GIT_CLEAN_PATHS\"
 
       for clean_path in ${GIT_CLEAN_PATHS[@]}; do
-        echo ${clean_path}
+        echo \"${clean_path}\"
         git clean -ffdxn ${clean_path}
       done
     "
