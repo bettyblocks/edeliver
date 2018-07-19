@@ -940,7 +940,7 @@ git_clean_remote() {
         [ -f ~/.profile ] && source ~/.profile
         set -e
         cd $BUILD_AT
-        git clean -ffdxn ${clean_path}
+        git clean -ffdx ${clean_path}
       "
     done
 
