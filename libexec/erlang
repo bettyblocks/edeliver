@@ -940,9 +940,9 @@ git_clean_remote() {
       cd $BUILD_AT
       echo \"cleaning files in: $GIT_CLEAN_PATHS\"
 
-      for CLEAN_PATH in ${GIT_CLEAN_PATHS[@]}; do
-        echo ${CLEAN_PATH}
-        git clean -ffdxn ${CLEAN_PATH}
+      for clean_path in ${GIT_CLEAN_PATHS[@]}; do
+        echo ${clean_path}
+        git clean -ffdxn ${clean_path}
       done
     "
   fi
