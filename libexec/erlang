@@ -941,7 +941,7 @@ git_clean_remote() {
       cd $BUILD_AT
       for _clean_path in $GIT_CLEAN_PATHS[@]
       do
-        git clean -ffdxs \$_clean_path
+        git clean -ffdx \$_clean_path
       done
     "
   fi
