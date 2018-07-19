@@ -932,19 +932,18 @@ git_clean_remote() {
   if [[ "$SKIP_GIT_CLEAN" = "true" ]]; then
     status "Skipped cleaning generated files from last build"
   else
-    #GIT_CLEAN_PATHS=${GIT_CLEAN_PATHS:="."}
+    GIT_CLEAN_PATHS=${GIT_CLEAN_PATHS:="."}
     status "Cleaning generated files from last build"
     echo \"cleaning files in: $GIT_CLEAN_PATHS\"
-      __sync_remote "
-        [ -f ~/.profile ] && source ~/.profile
-        set -e
-        cd $BUILD_AT
-        for _clean_path in $GIT_CLEAN_PATHS[@]
-        do
-          git clean -ffdxn \$_clean_path
-        done
-      "
-
+    __sync_remote "
+      [ -f ~/.profile ] && source ~/.profile
+      set -e
+      cd $BUILD_AT
+      for _clean_path in $GIT_CLEAN_PATHS[@]
+      do
+        git clean -ffdxs \$_clean_path
+      done
+    "
   fi
 }
 
