@@ -934,17 +934,17 @@ git_clean_remote() {
   else
     #GIT_CLEAN_PATHS=${GIT_CLEAN_PATHS:="."}
     status "Cleaning generated files from last build"
-    local clean_path=""
+    for clean_path in ${GIT_CLEAN_PATHS[@]}; do
     __sync_remote "
       [ -f ~/.profile ] && source ~/.profile
       set -e
       cd $BUILD_AT
       echo \"cleaning files in: $GIT_CLEAN_PATHS\"
-      for clean_path in ${GIT_CLEAN_PATHS[@]}; do
         echo \"${clean_path}\"
         git clean -ffdxn ${clean_path}
-      done
     "
+    done
+
   fi
 }
 
