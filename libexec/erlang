@@ -932,7 +932,7 @@ git_clean_remote() {
   if [[ "$SKIP_GIT_CLEAN" = "true" ]]; then
     status "Skipped cleaning generated files from last build"
   else
-    GIT_CLEAN_PATHS=${GIT_CLEAN_PATHS:="."}
+    #GIT_CLEAN_PATHS=${GIT_CLEAN_PATHS:="."}
     status "Cleaning generated files from last build"
     __sync_remote "
       [ -f ~/.profile ] && source ~/.profile
