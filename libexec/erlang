@@ -934,7 +934,7 @@ git_clean_remote() {
   else
     #GIT_CLEAN_PATHS=${GIT_CLEAN_PATHS:="."}
     status "Cleaning generated files from last build"
-    local clean_path
+    local clean_path=""
     __sync_remote "
       [ -f ~/.profile ] && source ~/.profile
       set -e
